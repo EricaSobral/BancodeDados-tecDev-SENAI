@@ -3,6 +3,7 @@ CREATE DATABASE RoteiroLivros;
 
 USE RoteiroLivros;
 
+-- DDL
 CREATE TABLE Autores (
  id_autor INT PRIMARY KEY IDENTITY,
  Nome varchar(100)
@@ -52,6 +53,27 @@ CREATE TABLE Autores (
   DELETE FROM Autores
   WHERE id_autor = 1;
 
+  -- DELETANDO LIVRO DE MAIOR ID
+  DELETE FROM Livros
+  WHERE id_autores =5
+
+
+
+ -- DQL
  SELECT * FROM Autores;
  SELECT * FROM Genero;
  SELECT * FROM Livros;
+
+-- Selecionar todos os livros e seus respectivos autores;
+SELECT * FROM Livros
+INNER JOIN Autores ON Livros.id_autores = Autores.id_autor;
+
+-- Selecionar todos os livros e seus respectivos gêneros;
+SELECT * FROM Livros 
+INNER JOIN Genero ON Livros.id_genero = Genero.id_genero;
+
+-- Selecionar todos os livros e seus respectivos autores e gêneros;
+SELECT * FROM Livros 
+INNER JOIN Genero ON Livros.id_genero = Genero.id_genero
+INNER JOIN Autores ON Livros.id_autores = Autores.id_autor;
+
